@@ -1,0 +1,181 @@
+{
+    "songs": [
+      {
+        "id": 1,
+        "title": "Die With A Smile",
+        "artist": "Lady Gaga and Bruno Mars",
+        "album": "Die With A Smile - Single",
+        "duration": "3:45",
+        "cover": "assets/Die With A Smile.png",
+        "audio": "assets/song/Lady Gaga Bruno Mars - Die With A Smile (Official Music Video).mp3",
+        "video": "assets/video/Lady Gaga Bruno Mars - Die With A Smile (Official Music Video).mp4",
+        "likes": 1025492,
+        "liked": false
+      },
+      {
+        "id": 2,
+        "title": "Blinding Lights",
+        "artist": "The Weeknd", 
+        "album": "After Hours",
+        "duration": "3:20",
+        "cover": "assets/Blinding Light.png",
+        "audio": "assets/song/The Weeknd - Blinding Lights (Official Video).mp3",
+        "video": "assets/video/The Weeknd - Blinding Lights (Official Video).mp4",
+        "likes": 987654,
+        "liked": false
+      },
+      {
+        "id": 3,
+        "title": "As It Was",
+        "artist": "Harry Styles",
+        "album": "Harry's House",
+        "duration": "2:47",
+        "cover": "assets/As It Was.png",
+        "audio": "assets/song/Harry Styles - As It Was (Official Video).mp3",
+        "video": "assets/video/Harry Styles - As It Was (Official Video).mp4",
+        "likes": 876543,
+        "liked": false
+      },
+      {
+        "id": 4,
+        "title": "Until I Found You",
+        "artist": "Stephen Sanchez", 
+        "album": "Easy On My Eyes",
+        "duration": "2:57",
+        "cover": "assets/until i found.png",
+        "audio": "assets/song/Stephen Sanchez - Until I Found You (Official Video).mp3",
+        "video": "assets/video/Stephen Sanchez - Until I Found You (Official Video).mp4",
+        "likes": 765432,
+        "liked": false
+      },
+      {
+        "id": 5,
+        "title": "Ghost",
+        "artist": "Justin Bieber", 
+        "album": "Justice",
+        "duration": "2:33",
+        "cover": "assets/ghost.png",
+        "audio": "assets/song/Justin Bieber - Ghost.mp3",
+        "video": "assets/video/Justin Bieber - Ghost.mp4",
+        "likes": 654321,
+        "liked": false
+      },
+      {
+        "id": 6,
+        "title": "double take",
+        "artist": "Dhruv",
+        "album": "rapunzel",
+        "duration": "2:51",
+        "cover": "assets/double take.png",
+        "audio": "assets/song/Dhruv - double take (Official Video).mp3",
+        "video": "assets/video/Dhruv - double take (Official Video).mp4",
+        "likes": 543210,
+        "liked": false
+      },
+      {
+        "id": 7,
+        "title": "golden hour",
+        "artist": "JVKE", 
+        "album": "this is what falling in love feels like (554HZ)",
+        "duration": "3:29",
+        "cover": "assets/golden.png",
+        "audio": "assets/song/JVKE - golden hour (official music video) (1).mp3",
+        "video": "assets/video/JVKE - golden hour (official music video).mp4",
+        "likes": 432109,
+        "liked": false
+      },
+      {
+        "id": 8,
+        "title": "blue",
+        "artist": "yung kai", 
+        "album": "blue",
+        "duration": "3:34",
+        "cover": "assets/blue.png",
+        "audio": "assets/song/yung kai - blue (official lyric video).mp3",
+        "video": "assets/video/yung kai - blue (official lyric video).mp4",
+        "likes": 321098,
+        "liked": false
+      },
+      {
+        "id": 9,
+        "title": "LIMBO",
+        "artist": "Keshi", 
+        "album": "GABRIEL",
+        "duration": "3:33",
+        "cover": "assets/LIMBO.jpeg",
+        "audio": "assets/song/keshi - LIMBO (Visualizer).mp3",
+        "video": "assets/video/keshi - LIMBO (Visualizer).mp4",
+        "likes": 321098,
+        "liked": false
+      },
+      {
+        "id": 10,
+        "title": "I Just Couldn't Save You Tonight - Story Of Cale - Origin",
+        "artist": "Ardhito Pramono, Aurelie", 
+        "album": "Sudah",
+        "duration": "3:40",
+        "cover": "assets/I Just C.jpeg",
+        "audio": "assets/song/Just C.mp3",
+        "video": "assets/video/Just C.mp4",
+        "likes": 321098,
+        "liked": false
+      },
+      {
+        "id": 11,
+        "title": "Mine Of Matter (Reprise)",
+        "artist": "Young The Giant", 
+        "album": "Mirrorball",
+        "duration": "3:51",
+        "cover": "assets/blue.png",
+        "audio": "assets/song/yung kai - blue (official lyric video).mp3",
+        "video": "assets/video/yung kai - blue (official lyric video).mp4",
+        "likes": 321098,
+        "liked": false
+      }
+    ],
+    "albums": [
+      {
+        "id": 1,
+        "title": "Lone",
+        "artist": "Lady Gaga and Bruno Mars, The Weeknd, Harry Styles",
+        "cover": "assets/playlist1.jpg",
+        "songs": [1, 2, 3]
+      },
+      {
+        "id": 2,
+        "title": "Reason",
+        "artist": "Stephen Sanchez, Justin Bieber, Dhruv",
+        "cover": "assets/reason.jpg",
+        "songs": [4, 5, 6]
+      },
+      {
+        "id": 3,
+        "title": "Happy",
+        "artist": "JVKE, yung kai, Lady Gaga and Bruno Mars",
+        "cover": "assets/happ.jpg",
+        "songs": [7, 8, 1]
+      },
+      {
+        "id": 4,
+        "title": "On Fire",
+        "artist": "The Weeknd, Harry Styles, Stephen Sanchez",
+        "cover": "assets/fire.jpg",
+        "songs": [2, 3, 4]
+      },
+      {
+        "id": 5,
+        "title": "Energy",
+        "artist": "Justin Bieber, Dhruv, JVKE",
+        "cover": "assets/beach.jpg",
+        "songs": [5, 6, 7]
+      },
+      {
+        "id": 6,
+        "title": "Sendok",
+        "artist": "yung kai, Justin Bieber and Lady Gaga, The Weeknd",
+        "cover": "assets/sendok.jpg",
+        "songs": [8, 1, 2]
+      }
+    ]
+  }
+  

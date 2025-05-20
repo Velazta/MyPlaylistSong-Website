@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MyPlaylistCloud - Music Streaming</title>
+    <link rel="icon" type="img" href="assets/logo.jpg">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'MyPlaylist-green': '#1db954',
+                        'MyPlaylist-green-light': '#1ed760',
+                        'MyPlaylist-dark': '#111',
+                        'MyPlaylist-darker': '#000',
+                        'MyPlaylist-gray': '#222',
+                        'MyPlaylist-gray-light': '#333',
+                        'MyPlaylist-gray-lighter': '#444',
+                        'MyPlaylist-gray-text': '#aaa',
+                        'MyPlaylist-red': '#ff4d4d',
+                    },
+                    animation: {
+                        'pulse': 'pulse 0.5s ease',
+                        'fadeIn': 'fadeIn 0.5s ease',
+                        'slideIn': 'slideIn 0.5s ease',
+                    },
+                    keyframes: {
+                        pulse: {
+                            '0%': { transform: 'scale(1)' },
+                            '50%': { transform: 'scale(1.1)' },
+                            '100%': { transform: 'scale(1)' },
+                        },
+                        fadeIn: {
+                            'from': { opacity: '0' },
+                            'to': { opacity: '1' },
+                        },
+                        slideIn: {
+                            'from': { transform: 'translateY(20px)', opacity: '0' },
+                            'to': { transform: 'translateY(0)', opacity: '1' },
+                        },
+                    },
+                },
+            },
+        }
+    </script>
+    <style>
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: #555;
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: #777;
+        }
+        
+        /* Animation classes */
+        .animate-pulse-custom {
+            animation: pulse 0.5s ease;
+        }
+        
+        .animate-fadeIn {
+            animation: fadeIn 0.5s ease;
+        }
+        
+        .animate-slideIn {
+            animation: slideIn 0.5s ease;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        
+        @keyframes slideIn {
+            from { transform: translateY(20px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+    </style>
+</head>
+<body class="bg-MyPlaylist-darker text-white h-screen overflow-hidden">
+    <div class="flex flex-col h-screen">
+        <!--header-->
+        <header class="flex items-center px-5 py-4 h-[60px] relative z-10">
+            <div class="logo">
+                <h1 class="text-[22px] font-bold">MySongPlaylist</h1>
+            </div>
+            <div class="ml-auto mr-5 flex items-center bg-MyPlaylist-gray-light rounded-full px-4 py-1.5 w-[300px] transition-all duration-300 focus-within:bg-MyPlaylist-gray-lighter focus-within:shadow">
+                <input type="text" id="search-input" placeholder="Search Music" class="bg-transparent border-none text-white w-full py-1.5 outline-none">
+                <button id="search-btn" class="bg-transparent border-none text-MyPlaylist-gray-text cursor-pointer transition-colors duration-300 hover:text-white">
+                    <i class="fas fa-search"></i>
+                </button>
+            </div>
+            <div class="flex items-center cursor-pointer transition-opacity duration-300 hover:opacity-80">
+                <img src="assets/kucay.jpg" alt="User Profile" class="w-[30px] h-[30px] rounded-full mr-2.5">
+                <span>Ravelvet</span>
+            </div>
+        </header>
+
+        <!--main content-->
+        <div class="flex flex-1 overflow-hidden">
+            <!-- Sidebar -->
+            <div class="w-[200px] py-5 px-2.5 flex flex-col">
+                <div>
+                    <h2 class="text-lg mb-4">Browse Music</h2>
+                    <ul class="list-none">
+                        <li class="py-2.5 px-1.5 flex items-center text-sm cursor-pointer transition-all duration-200 rounded text-MyPlaylist-green bg-opacity-10 bg-MyPlaylist-green">
+                            <i class="fas fa-home mr-2.5 w-5 text-center"></i> Home
+                        </li>
+                        <li class="py-2.5 px-1.5 flex items-center text-sm cursor-pointer transition-all duration-200 rounded hover:text-MyPlaylist-green hover:bg-opacity-10 hover:bg-MyPlaylist-green">
+                            <i class="fas fa-music mr-2.5 w-5 text-center"></i> Tracks (Unvailable)
+                        </li>
+                        <li class="py-2.5 px-1.5 flex items-center text-sm cursor-pointer transition-all duration-200 rounded hover:text-MyPlaylist-green hover:bg-opacity-10 hover:bg-MyPlaylist-green">
+                            <i class="fas fa-guitar mr-2.5 w-5 text-center"></i> Genres (Unvailable)
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="mt-7">
+                    <h2 class="text-lg mb-4">Library</h2>
+                    <ul class="list-none">
+                        <li class="py-2.5 px-1.5 text-sm cursor-pointer transition-all duration-200 rounded hover:text-MyPlaylist-green hover:bg-opacity-10 hover:bg-MyPlaylist-green">
+                            Recently Played (Unvailable)
+                        </li>
+                        <li class="py-2.5 px-1.5 text-sm cursor-pointer transition-all duration-200 rounded hover:text-MyPlaylist-green hover:bg-opacity-10 hover:bg-MyPlaylist-green">
+                            Favorite Tracks (Unvailable)
+                        </li>
+                        <li class="py-2.5 px-1.5 text-sm cursor-pointer transition-all duration-200 rounded hover:text-MyPlaylist-green hover:bg-opacity-10 hover:bg-MyPlaylist-green">
+                            Radio (Unvailable)
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!--content area-->
+            <div class="flex-1 overflow-y-auto px-5 pb-[90px]">
+                <!-- Current Playing -->
+                <div class="current-playing relative h-[400px] rounded-lg overflow-hidden mb-7 cursor-pointer">
+                    <div class="absolute top-5 left-5 text-xs font-semibold z-[2]">CURRENT PLAYING</div>
+                    <div class="song-info absolute bottom-10 left-5 z-[2]">
+                        <h1 id="current-song-title" class="text-[48px] mb-1.5 drop-shadow-lg">Die With A Smile</h1>
+                        <p id="current-song-artist" class="text-base mb-4 drop-shadow">By Lady Gaga and Bruno Mars</p>
+                        <div class="likes flex items-center text-sm">
+                            <i id="like-button" class="fas fa-heart mr-1.5 text-MyPlaylist-gray-text cursor-pointer transition-all duration-300 hover:scale-[1.2]"></i> 
+                            <span id="like-count">1,025,492</span> Likes
+                        </div>
+                    </div>
+                    <div class="song-cover absolute top-0 left-0 w-full h-full z-[1] transition-opacity duration-300">
+                        <img id="current-song-cover" src="https://i.imgur.com/JGYj8uh.jpg" alt="Die With A Smile" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent"></div>
+                    </div>
+                    <div class="video-container hidden absolute top-0 left-0 w-full h-full z-[1] transition-opacity duration-300">
+                        <video id="video-player" src="/placeholder.svg" poster="" muted class="w-full h-full object-cover"></video>
+                    </div>
+                    <div class="play-overlay absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 z-[3] hover:opacity-100">
+                        <button id="big-play-btn" class="big-play-btn w-20 h-20 rounded-full bg-MyPlaylist-green/80 border-none text-white text-3xl flex items-center justify-center cursor-pointer transition-all duration-300 hover:bg-MyPlaylist-green hover:scale-110">
+                            <i class="fas fa-play"></i>
+                        </button>
+                    </div>
+                    <button class="video-toggle absolute bottom-5 right-5 bg-black/50 text-white border-none rounded-full w-10 h-10 flex items-center justify-center cursor-pointer z-[4] transition-all duration-300 hover:bg-MyPlaylist-green/80 hover:scale-110" id="video-toggle">
+                        <i class="fas fa-video"></i>
+                    </button>
+                </div>
+
+                <!--album section-->
+                <h2 class="text-2xl my-7">My Album</h2>
+                <div class="seasons-section grid grid-cols-6 gap-5 mb-7" id="albums-container">
+                    <!--album will loaded by javascript in json local file-->
+                </div>
+
+                <!--tracks section-->
+                <h2 class="text-2xl my-7">My Top Tracks</h2>
+                <div class="tracks-section mb-7" id="tracks-container">
+                    <!--Track will loaded by javascript in json local file-->
+                </div>
+            </div>
+        </div>
+
+        <!--control player-->
+        <div class="player-controls fixed bottom-0 left-0 right-0 h-[70px] flex items-center justify-between px-5 py-2.5 border-t border-MyPlaylist-gray bg-MyPlaylist-dark z-10">
+            <div class="song-details flex items-center w-1/4">
+                <img id="mini-song-cover" src="https://i.imgur.com/JGYj8uh.jpg" alt="Die With A Smile" class="w-[40px] h-[40px] rounded mr-4 transition-all duration-300 hover:scale-105">
+                <div class="mini-info flex-1">
+                    <h4 id="mini-song-title" class="text-sm mb-1 whitespace-nowrap overflow-hidden text-ellipsis max-w-[150px]">Die With A Smile</h4>
+                    <p id="mini-song-artist" class="text-xs text-MyPlaylist-gray-text whitespace-nowrap overflow-hidden text-ellipsis max-w-[150px]">By Lady Gaga and Bruno Mars</p>
+                </div>
+                <button id="mini-like-btn" class="mini-like-btn bg-transparent border-none text-MyPlaylist-gray-text cursor-pointer transition-all duration-300 hover:scale-[1.2] ml-2.5">
+                    <i class="far fa-heart"></i>
+                </button>
+            </div>
+            
+            <div class="flex flex-col items-center justify-center w-2/4">
+                <div class="controls flex items-center justify-center mb-2">
+                    <!-- <button id="shuffle-btn" class="shuffle-btn bg-transparent border-none text-white text-base mx-4 cursor-pointer transition-all duration-300 hover:scale-[1.2] hover:text-MyPlaylist-green">
+                        <i class="fas fa-random"></i>
+                    </button> -->
+                    <button id="prev-btn" class="prev-btn bg-transparent border-none text-white text-base mx-4 cursor-pointer transition-all duration-300 hover:scale-[1.2] hover:text-MyPlaylist-green">
+                        <i class="fas fa-step-backward"></i>
+                    </button>
+                    <button id="play-btn" class="play-btn w-10 h-10 bg-white border-none rounded-full flex items-center justify-center transition-all duration-300 hover:bg-MyPlaylist-green hover:scale-110 mx-4">
+                        <i class="fas fa-play text-black"></i>
+                    </button>
+                    <button id="next-btn" class="next-btn bg-transparent border-none text-white text-base mx-4 cursor-pointer transition-all duration-300 hover:scale-[1.2] hover:text-MyPlaylist-green">
+                        <i class="fas fa-step-forward"></i>
+                    </button>
+                    <!-- <button id="repeat-btn" class="repeat-btn bg-transparent border-none text-white text-base mx-4 cursor-pointer transition-all duration-300 hover:scale-[1.2] hover:text-MyPlaylist-green">
+                        <i class="fas fa-redo"></i>
+                    </button> -->
+                </div>
+                <div class="player-progress flex items-center w-full">
+                    <span id="current-time" class="text-xs text-MyPlaylist-gray-text w-10">0:00</span>
+                    <div class="progress-bar flex-1 h-1 bg-[#555] rounded mx-2.5 cursor-pointer relative">
+                        <div id="progress" class="progress absolute left-0 top-0 h-full w-0 bg-MyPlaylist-green rounded transition-width duration-100 linear"></div>
+                    </div>
+                    <span id="total-time" class="text-xs text-MyPlaylist-gray-text w-10 text-right">0:00</span>
+                </div>
+            </div>
+            
+            <div class="volume-controls flex items-center justify-end w-1/4">
+                <button id="playlist-btn" class="playlist-btn bg-transparent border-none text-white text-base ml-4 cursor-pointer transition-all duration-300 hover:text-MyPlaylist-green hover:scale-[1.2]">
+                    <i class="fas fa-list"></i>
+                </button>
+                <button id="volume-btn" class="volume-btn bg-transparent border-none text-white text-base ml-4 cursor-pointer transition-all duration-300 hover:text-MyPlaylist-green hover:scale-[1.2]">
+                    <i class="fas fa-volume-up"></i>
+                </button>
+                <div class="volume-slider w-[100px] h-1 bg-[#555] rounded ml-2.5 relative cursor-pointer">
+                    <div id="volume-progress" class="volume-progress absolute left-0 top-0 h-full w-[70%] bg-MyPlaylist-green rounded"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--audio element-->
+    <audio id="audio-player" src="/placeholder.svg"></audio>
+
+    <!--script JS-->
+    <script src="script.js"></script>
+</body>
+</html>
